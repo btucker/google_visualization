@@ -1,0 +1,27 @@
+CLEAN.include("pkg")
+
+# For a list of all attributes refer to http://docs.rubygems.org/read/chapter/20
+spec = Gem::Specification.new do |s|
+  s.name = "google_visualization"
+  s.version = Google::Visualization::VERSION
+  s.summary = "A helper Ruby library for the Google Visualization API"
+  s.homepage = "http://github.com/fmmfonseca/google_visualization"
+  
+  s.author = "Miguel Fonseca"
+  s.email = "fmmfonseca@gmail.com"
+
+  s.required_ruby_version = ">= 1.8.6"
+  s.files = FileList["LICENSE", "Rakefile", "README.rdoc", "tasks/*.rake", "lib/**/*.rb", "test/**/tc_*.rb"].to_a
+  s.require_path = "lib"
+  
+  s.test_files = Dir.glob("test/**/tc_*.rb")
+  
+  s.has_rdoc = true
+  s.extra_rdoc_files = %w[README.rdoc LICENSE]
+  s.rdoc_options = %w[--line-numbers --inline-source --main README.rdoc]
+end
+
+# For a list of all attributes refer to http://rake.rubyforge.org/classes/Rake/PackageTask.html
+Rake::GemPackageTask.new(spec) do |p|
+  p.need_zip = true
+end

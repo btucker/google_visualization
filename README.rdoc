@@ -1,0 +1,7 @@
+= Description
+
+A helper Ruby library for the {Google Visualization API}[http://code.google.com/apis/visualization/].
+
+= Copyright
+
+Copyright (c) 2010 Miguel Fonseca. See LICENSE for details.
