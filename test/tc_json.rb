@@ -29,7 +29,6 @@ class TC_JSON < Test::Unit::TestCase
     }
     assert_equal("\"1\"", Formatter::JSON.rb_to_js(1, DataType::STRING))
     assert_equal("\"true\"", Formatter::JSON.rb_to_js(true, DataType::STRING))
-    assert_equal("\"012\"", Formatter::JSON.rb_to_js([0,1,2], DataType::STRING))
   end
 
   def test_rb_to_js_number
