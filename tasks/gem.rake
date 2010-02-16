@@ -4,7 +4,7 @@ CLEAN.include("pkg")
 spec = Gem::Specification.new do |s|
   s.name = "google_visualization"
   s.version = Google::Visualization::VERSION
-  s.summary = "A helper Ruby library for the Google Visualization API"
+  s.summary = "A Ruby interface to manipulate and populate data for Google Interactive Charts"
   s.homepage = "http://github.com/fmmfonseca/google_visualization"
   
   s.author = "Miguel Fonseca"

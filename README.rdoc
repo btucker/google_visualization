@@ -1,6 +1,6 @@
 = Description
 
-A helper Ruby library for the {Google Visualization API}[http://code.google.com/apis/visualization/].
+A Ruby interface to manipulate and populate data for {Google Interactive Charts}[http://code.google.com/apis/visualization/interactive_charts.html].
 
 = Example
 
