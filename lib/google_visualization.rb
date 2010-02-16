@@ -1,7 +1,6 @@
 $LOAD_PATH.unshift File.dirname(__FILE__)
 
 require 'enumerator'
-require 'generator'
 require 'google_visualization/data_type'
 require 'google_visualization/data_element'
 require 'google_visualization/data_cell'

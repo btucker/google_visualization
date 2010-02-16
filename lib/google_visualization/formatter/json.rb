@@ -74,7 +74,7 @@ module Google
         #
         def self.render_row(row, columns)
           result = []
-          cells = SyncEnumerator.new(row.cells, columns).collect { |cell, column|
+          cells = row.cells.zip(columns).collect { |cell, column|
             render_cell(cell, column.type)
           }
           result << "c:[#{cells.join(',')}]"
