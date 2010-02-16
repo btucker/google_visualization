@@ -6,12 +6,20 @@ module Google
     #
     # == Description
     #
+    # Represents a data type for a DataColumn.
+    #
     class DataType
 
+      ##
+      # Creates a new type.
+      #
       def initialize(name)
         @name = name
       end
 
+      ##
+      # Returns a string representing the type.
+      #
       def to_s
         @name.to_s
       end

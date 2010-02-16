@@ -3,16 +3,18 @@ module Google
     module Formatter
       
       ##
-      # = Formatter::JSON
+      # = JSON Formatter
       #
       # == Description
+      #
+      # Serializes a DataTable to the JavaScript Object Notation (JSON).
       #
       class JSON
         
         private_class_method :new
         
         ##
-        # Generates a JSON representation of a data table.
+        # Generates a JSON string representation of a data table.
         #
         def self.render(data_table)
           result = []
@@ -27,7 +29,7 @@ module Google
         private
 
         ##
-        # Generates a JSON representation of a multiple columns.
+        # Generates a JSON string representation of a multiple columns.
         #
         def self.render_columns(columns)
           result = columns.collect { |column|
@@ -37,7 +39,7 @@ module Google
         end
 
         ##
-        # Generates a JSON representation of a single column.
+        # Generates a JSON string representation of a single column.
         #
         def self.render_column(column)
           result = []
@@ -58,7 +60,7 @@ module Google
         end
 
         ##
-        # Generates a JSON representation of multiple rows.
+        # Generates a JSON string representation of multiple rows.
         #
         def self.render_rows(rows, columns)
           result = rows.collect { |row|
@@ -68,7 +70,7 @@ module Google
         end
 
         ##
-        # Generates a JSON representation of a single row.
+        # Generates a JSON string representation of a single row.
         #
         def self.render_row(row, columns)
           result = []
@@ -83,7 +85,7 @@ module Google
         end
 
         ##
-        # Generates a JSON representation of a cell.
+        # Generates a JSON string representation of a cell.
         #
         def self.render_cell(cell, data_type)
           result = []
@@ -98,7 +100,7 @@ module Google
         end
 
         ##
-        # Generates a JSON representation of the custom properties.
+        # Generates a JSON string representation of the custom properties.
         #
         def self.render_custom_properties(data_element)
           result = data_element.custom_properties.collect { |name,value|

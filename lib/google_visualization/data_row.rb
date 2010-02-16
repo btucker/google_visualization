@@ -6,6 +6,8 @@ module Google
     #
     # == Description
     #
+    # Represents a row of data in a DataTable.
+    #
     class DataRow < DataElement
 
       ##

@@ -6,6 +6,8 @@ module Google
     #
     # == Description
     #
+    # Represents the schema of a column in a DataTable.
+    #
     class DataColumn < DataElement
 
       ##

@@ -6,6 +6,8 @@ module Google
     #
     # == Description
     #
+    # Represents a single cell value in a DataTable.
+    #
     class DataCell < DataElement
 
       ##

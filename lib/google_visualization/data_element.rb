@@ -6,6 +6,8 @@ module Google
     #
     # == Description
     #
+    # Represents a element that holds a set of custom properties (name/value pairs).
+    #
     class DataElement
 
       ##

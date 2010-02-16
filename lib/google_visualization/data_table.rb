@@ -6,6 +6,8 @@ module Google
     #
     # == Description
     #
+    # Represents a two-dimensional, mutable table of values.
+    #
     class DataTable < DataElement
 
       ##
@@ -125,7 +127,7 @@ module Google
       end
       
       ##
-      # Serializes data table to the specified format.
+      # Serializes the table to the specified format.
       #
       def dump(format)
         case format.to_s.downcase
