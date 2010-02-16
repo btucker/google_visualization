@@ -17,8 +17,8 @@ module Google
         super()
         @columns = []
         @rows = []
-        append_columns(columns) unless (columns.nil? or columns.empty?)
-        append_rows(rows) unless (rows.nil? or rows.empty?)
+        add_columns(columns) unless (columns.nil? or columns.empty?)
+        add_rows(rows) unless (rows.nil? or rows.empty?)
       end
 
       ##
@@ -71,11 +71,9 @@ module Google
       end
 
       ##
-      # Pushes a single row to the end of the table.
-      # This expression returns the data table itself, so several appends may be
-      # chained together.
+      # Adds a single row to the end of the table and returns self.
       #
-      def append_row(obj)
+      def add_row(obj)
         obj = DataRow.new(obj) unless obj.is_a?(DataRow)
         raise(StandardError, "invalid size") if obj.cells_count != columns_count
         obj.close
@@ -84,11 +82,9 @@ module Google
       end
 
       ##
-      # Pushes a column to the end of the table.
-      # This expression returns the data table itself, so several appends may be
-      # chained together.
+      # Adds a single column to the end of the table and returns self.
       #
-      def append_column(obj)
+      def add_column(obj)
         raise(StandardError, "can't modify") if rows_count > 0
         obj = DataColumn.new(obj) unless obj.is_a?(DataColumn)
         obj.close
@@ -97,22 +93,18 @@ module Google
       end
 
       ##
-      # Pushes multiple rows to the end of the table.
-      # This expression returns the data table itself, so several appends may be
-      # chained together.
+      # Adds multiple rows to the end of the table and returns self.
       #
-      def append_rows(list)
-        list.each { |obj| append_row(obj) }
+      def add_rows(list)
+        list.each { |obj| add_row(obj) }
         self
       end
 
       ##
-      # Pushes multiple columns to the end of the table.
-      # This expression returns the data table itself, so several appends may be
-      # chained together.
+      # Adds multiple columns to the end of the table and returns self.
       #
-      def append_columns(list)
-        list.each { |obj| append_column(obj) }
+      def add_columns(list)
+        list.each { |obj| add_column(obj) }
         self
       end
 

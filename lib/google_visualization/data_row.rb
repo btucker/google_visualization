@@ -17,7 +17,7 @@ module Google
         super()
         @closed = false
         @cells = []
-        append_cells(cells) unless (cells.nil? or cells.empty?)
+        add_cells(cells) unless (cells.nil? or cells.empty?)
       end
 
       ##
@@ -42,11 +42,9 @@ module Google
       end
 
       ##
-      # Pushes a single object to the end of the row.
-      # This expression returns the row itself, so several appends may be
-      # chained together.
+      # Adds a single object to the end of the row and returns self.
       #
-      def append_cell(obj)
+      def add_cell(obj)
         raise(StandardError, "can't modify") if @closed
         obj = DataCell.new(obj) unless obj.is_a?(DataCell)
         @cells << obj
@@ -54,12 +52,10 @@ module Google
       end
 
       ##
-      # Pushes multiple objects to the end of the row.
-      # This expression returns the row itself, so several appends may be
-      # chained together.
+      # Adds multiple objects to the end of the row and returns self.
       #
-      def append_cells(list)
-        list.each { |obj| append_cell(obj) }
+      def add_cells(list)
+        list.each { |obj| add_cell(obj) }
         self
       end
 

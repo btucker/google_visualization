@@ -11,13 +11,13 @@ A helper Ruby library for the {Google Visualization API}[http://code.google.com/
   include Google::Visualization
 
   data_table = DataTable.new
-  data_table.append_column DataColumn.new(DataType::STRING, 'Task')
-  data_table.append_column DataColumn.new(DataType::NUMBER, 'Hours per Day')
-  data_table.append_row ['Work', 11]
-  data_table.append_row ['Eat', 2]
-  data_table.append_row ['Commute', 2]
-  data_table.append_row ['Watch TV', 2]
-  data_table.append_row ['Sleep', 7]
+  data_table.add_column DataColumn.new(DataType::STRING, 'Task')
+  data_table.add_column DataColumn.new(DataType::NUMBER, 'Hours per Day')
+  data_table.add_row ['Work', 11]
+  data_table.add_row ['Eat', 2]
+  data_table.add_row ['Commute', 2]
+  data_table.add_row ['Watch TV', 2]
+  data_table.add_row ['Sleep', 7]
 
   page = <<HTML
   <html>

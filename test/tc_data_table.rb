@@ -28,39 +28,39 @@ class TC_DataTable < Test::Unit::TestCase
     assert_equal(table.rows_count, 2)
   end
   
-  def test_append_column
+  def test_add_column
     table = DataTable.new
-    table.append_column(DataType::STRING)
-    table.append_column(DataColumn.new(DataType::NUMBER))
+    table.add_column(DataType::STRING)
+    table.add_column(DataColumn.new(DataType::NUMBER))
     assert_equal(table.columns_count, 2)
     assert_equal(table.column(0).type, DataType::STRING)
     assert_equal(table.column(1).type, DataType::NUMBER)
   end
   
-  def test_append_columns
+  def test_add_columns
     table = DataTable.new
-    table.append_columns([DataType::STRING, DataColumn.new(DataType::NUMBER)])
+    table.add_columns([DataType::STRING, DataColumn.new(DataType::NUMBER)])
     assert_equal(table.columns_count, 2)
     assert_equal(table.column(0).type, DataType::STRING)
     assert_equal(table.column(1).type, DataType::NUMBER)
   end
   
-  def test_append_row
+  def test_add_row
     table = DataTable.new
-    assert_raise(StandardError) { table.append_row(['value', 0]) }
-    table.append_columns([DataType::STRING, DataColumn.new(DataType::NUMBER)])
-    table.append_row(['value', 0])
-    table.append_row(DataRow.new(['value', 1]))
+    assert_raise(StandardError) { table.add_row(['value', 0]) }
+    table.add_columns([DataType::STRING, DataColumn.new(DataType::NUMBER)])
+    table.add_row(['value', 0])
+    table.add_row(DataRow.new(['value', 1]))
     assert_equal(table.rows_count, 2)
     assert_equal(table.row(0).cell(1).value, 0)
     assert_equal(table.row(1).cell(1).value, 1)
   end
   
-  def test_append_rows
+  def test_add_rows
     table = DataTable.new
-    assert_raise(StandardError) { table.append_rows([['value', 0], DataRow.new(['value', 1])]) }
-    table.append_columns([DataType::STRING, DataColumn.new(DataType::NUMBER)])
-    table.append_rows([['value', 0], DataRow.new(['value', 1])])
+    assert_raise(StandardError) { table.add_rows([['value', 0], DataRow.new(['value', 1])]) }
+    table.add_columns([DataType::STRING, DataColumn.new(DataType::NUMBER)])
+    table.add_rows([['value', 0], DataRow.new(['value', 1])])
     assert_equal(table.rows_count, 2)
     assert_equal(table.row(0).cell(1).value, 0)
     assert_equal(table.row(1).cell(1).value, 1)
@@ -70,8 +70,8 @@ class TC_DataTable < Test::Unit::TestCase
     columns = [DataType::STRING, DataColumn.new(DataType::NUMBER)]
     rows = [['value', 0], DataRow.new(['value', 1])]
     table = DataTable.new(columns, rows)
-    assert_raise(StandardError) { table.append_column(DataColumn.new(DataType::BOOLEAN)) }
-    assert_nothing_raised { table.append_row(['value', 2]) }
+    assert_raise(StandardError) { table.add_column(DataColumn.new(DataType::BOOLEAN)) }
+    assert_nothing_raised { table.add_row(['value', 2]) }
   end
   
   def test_sort_rows_ascending

@@ -19,17 +19,17 @@ class TC_DataRow < Test::Unit::TestCase
     assert_equal(row.cells_count, 2)
   end
   
-  def test_append_cell
+  def test_add_cell
     row = DataRow.new
-    row.append_cell('value')
-    row.append_cell(DataCell.new(0))
+    row.add_cell('value')
+    row.add_cell(DataCell.new(0))
     assert_equal(row.cell(0).value, 'value')
     assert_equal(row.cell(1).value, 0)
   end
   
-  def test_append_cells
+  def test_add_cells
     row = DataRow.new
-    row.append_cells(['value', DataCell.new(0)])
+    row.add_cells(['value', DataCell.new(0)])
     assert_equal(row.cell(0).value, 'value')
     assert_equal(row.cell(1).value, 0)
   end
@@ -38,7 +38,7 @@ class TC_DataRow < Test::Unit::TestCase
     row = DataRow.new
     row.close
     assert_equal(row.closed?, true)
-    assert_raise(StandardError) { row.append_cell('value') }
+    assert_raise(StandardError) { row.add_cell('value') }
   end
   
   def test_custom_properties
