@@ -14,7 +14,7 @@ spec = Gem::Specification.new do |s|
   s.files = FileList["LICENSE", "Rakefile", "README.rdoc", "tasks/test.rake", "lib/**/*.rb", "test/**/*.rb"].to_a
   s.require_path = "lib"
   
-  s.test_files = Dir.glob("test/**/tc_*.rb")
+  s.test_files = Dir.glob("test/**/*.rb")
   
   s.has_rdoc = true
   s.extra_rdoc_files = %w[README.rdoc LICENSE]
