@@ -166,7 +166,7 @@ module Google
         def self.rb_to_js_date(obj)
           if obj.instance_of?(Date) or obj.instance_of?(Time) or obj.instance_of?(DateTime)
             #Shift the month by 1 to match the JavaScript date format
-            "new DateTime(#{obj.year},#{obj.month-1},#{obj.day})"
+            "new Date(#{obj.year},#{obj.month-1},#{obj.day})"
           else
             raise(TypeError, "can't convert")
           end
@@ -178,7 +178,7 @@ module Google
         def self.rb_to_js_datetime(obj)
           if obj.instance_of?(Time) or obj.instance_of?(DateTime)
             #Shift the month by 1 to match the JavaScript date format
-            "new DateTime(#{obj.year},#{obj.month-1},#{obj.day},#{obj.hour},#{obj.min},#{obj.sec})"
+            "new Date(#{obj.year},#{obj.month-1},#{obj.day},#{obj.hour},#{obj.min},#{obj.sec})"
           else
             raise(TypeError, "can't convert")
           end

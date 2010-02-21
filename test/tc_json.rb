@@ -53,9 +53,9 @@ class TC_JSON < Test::Unit::TestCase
     t = Time.parse("2000/01/02 03:04:05")
     dt = DateTime.parse("2000/01/02 03:04:05")
     assert_raise(TypeError) { Formatter::JSON.rb_to_js(0, DataType::DATE) }
-    assert_equal("new DateTime(2000,0,2)", Formatter::JSON.rb_to_js(d, DataType::DATE))
-    assert_equal("new DateTime(2000,0,2)", Formatter::JSON.rb_to_js(t, DataType::DATE))
-    assert_equal("new DateTime(2000,0,2)", Formatter::JSON.rb_to_js(dt, DataType::DATE))
+    assert_equal("new Date(2000,0,2)", Formatter::JSON.rb_to_js(d, DataType::DATE))
+    assert_equal("new Date(2000,0,2)", Formatter::JSON.rb_to_js(t, DataType::DATE))
+    assert_equal("new Date(2000,0,2)", Formatter::JSON.rb_to_js(dt, DataType::DATE))
   end
 
   def test_rb_to_js_datetime
@@ -64,8 +64,8 @@ class TC_JSON < Test::Unit::TestCase
     dt = DateTime.parse("2000/01/02 03:04:05")
     assert_raise(TypeError) { Formatter::JSON.rb_to_js(0, DataType::DATETIME) }
     assert_raise(TypeError) { Formatter::JSON.rb_to_js(d, DataType::DATETIME) }
-    assert_equal("new DateTime(2000,0,2,3,4,5)", Formatter::JSON.rb_to_js(t, DataType::DATETIME))
-    assert_equal("new DateTime(2000,0,2,3,4,5)", Formatter::JSON.rb_to_js(dt, DataType::DATETIME))
+    assert_equal("new Date(2000,0,2,3,4,5)", Formatter::JSON.rb_to_js(t, DataType::DATETIME))
+    assert_equal("new Date(2000,0,2,3,4,5)", Formatter::JSON.rb_to_js(dt, DataType::DATETIME))
   end
 
   def test_rb_to_js_timeofday
