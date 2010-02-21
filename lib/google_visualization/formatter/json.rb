@@ -104,7 +104,7 @@ module Google
         #
         def self.render_custom_properties(data_element)
           result = data_element.custom_properties.collect { |name,value|
-            "#{name}:#{rb_to_js(value, DataType::STRING)}"
+            "#{name.to_s}:#{rb_to_js(value, DataType::STRING)}"
           }
           "p:{#{result.join(',')}}"
         end
