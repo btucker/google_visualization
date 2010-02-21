@@ -19,7 +19,7 @@ module Google
         self.id = id
         self.type = type || DataType::STRING
         self.label = label
-        self.pattern = nil
+        self.pattern = ""
       end
 
       ##

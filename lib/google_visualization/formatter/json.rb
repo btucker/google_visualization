@@ -50,7 +50,7 @@ module Google
             result << "label:#{rb_to_js(column.label, DataType::STRING)}"
           end
           result << "type:#{rb_to_js(column.type.to_s, DataType::STRING)}"
-          unless column.pattern.nil?
+          unless column.pattern.empty?
             result << "pattern:#{rb_to_js(column.pattern, DataType::STRING)}"
           end
           if column.custom_properties_count > 0

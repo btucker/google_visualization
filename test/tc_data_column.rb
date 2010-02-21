@@ -13,7 +13,7 @@ class TC_DataColumn < Test::Unit::TestCase
     assert_equal(column.id, nil)
     assert_equal(column.type, DataType::STRING)
     assert_equal(column.label, nil)
-    assert_equal(column.pattern, nil)
+    assert_equal(column.pattern, "")
     assert_equal(column.closed?, false)
   end
   
