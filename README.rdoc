@@ -37,7 +37,7 @@ A Ruby interface to manipulate and populate data for {Google Interactive Charts}
         // draws it.
         function drawChart() {
           // Create our data table.
-          var data = new google.visualization.DataTable(<%= data_table.dump(:json) %>);
+          var data = new google.visualization.DataTable(<%= data_table.to_json %>);
 
           // Instantiate and draw our chart, passing in some options.
           var chart = new google.visualization.PieChart(document.getElementById('chart_div'));

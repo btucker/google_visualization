@@ -119,15 +119,10 @@ module Google
       end
       
       ##
-      # Serializes the table to the specified format.
+      # Returns a JSON representation of the table, according to the Google Visualization API.
       #
-      def dump(format)
-        case format.to_s.downcase
-        when 'json'
-          Formatter::JSON.render(self)
-        else
-          raise(TypeError, "invalid format")
-        end
+      def to_json
+        Formatter::JSON.render(self)
       end
 
     end
