@@ -74,7 +74,7 @@ module Google
         #
         def self.render_row(row, columns)
           result = []
-          cells = row.cells.zip(columns).collect { |cell, column|
+          cells = columns.zip(row.cells).collect { |column, cell|
             render_cell(cell, column.type)
           }
           result << "c:[#{cells.join(',')}]"
