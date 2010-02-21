@@ -157,7 +157,7 @@ module Google
         # Converts a Ruby value into a JavaScript boolean.
         #
         def self.rb_to_js_boolean(obj)
-          obj ? true.to_s : false.to_s
+          (obj == false or obj.nil?) ? false.to_s : true.to_s
         end
 
         ##
