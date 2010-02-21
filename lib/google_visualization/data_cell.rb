@@ -13,7 +13,7 @@ module Google
       ##
       # Creates a new cell.
       #
-      def initialize(value=nil, formatted_value='')
+      def initialize(value=nil, formatted_value=nil)
         super()
         self.value = value
         self.formatted_value = formatted_value

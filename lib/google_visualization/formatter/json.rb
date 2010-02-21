@@ -90,7 +90,7 @@ module Google
         def self.render_cell(cell, data_type)
           result = []
           result << "v:#{rb_to_js(cell.value, data_type)}"
-          unless cell.formatted_value.empty?
+          unless cell.formatted_value.nil?
             result << "f:#{rb_to_js(cell.formatted_value, DataType::STRING)}"
           end
           if cell.custom_properties_count > 0

@@ -11,7 +11,7 @@ class TC_DataCell < Test::Unit::TestCase
   def test_initialize_empty
     cell = DataCell.new
     assert_equal(cell.value, nil)
-    assert_equal(cell.formatted_value, '')
+    assert_equal(cell.formatted_value, nil)
   end
   
   def test_initialize_value
