@@ -1,0 +1,1 @@
+{cols:[{label:"Name",type:"string"},{label:"Salary",type:"number"},{label:"Full Time Employee",type:"boolean"}],rows:[{c:[{v:"Mike"},{v:10000,f:"$10,000"},{v:true}]},{c:[{v:"Jim"},{v:8000,f:"$8,000"},{v:false}]},{c:[{v:"Alice"},{v:12500,f:"$12,500"},{v:true}]},{c:[{v:"Bob"},{v:7000,f:"$7,000"},{v:true}]}]}

@@ -77,5 +77,14 @@ class TC_JSON < Test::Unit::TestCase
     assert_equal("[3,4,5]", Formatter::JSON.rb_to_js(t, DataType::TIMEOFDAY))
     assert_equal("[3,4,5]", Formatter::JSON.rb_to_js(dt, DataType::TIMEOFDAY))
   end
+  
+  def test_render
+    ruby_files = Dir.glob("test/data/*.rb")
+    json_files = Dir.glob("test/data/*json")
+    ruby_files.zip(json_files).each { |ruby_file, json_file|
+      table = eval(File.new(ruby_file).read)
+      assert_equal(Formatter::JSON.render(table), File.new(json_file).read)
+    }
+  end
 
 end
