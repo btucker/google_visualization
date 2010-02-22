@@ -47,8 +47,8 @@ module Google
       # Sets a type.
       #
       def type=(obj)
-        raise(StandardError, "can't modify") if @closed
-        raise(TypeError, "invalid type") unless obj.is_a?(DataType)
+        raise(StandardError, "can't modify closed column") if @closed
+        raise(TypeError, "wrong argument type #{obj.class}, should be DataType") unless obj.is_a?(DataType)
         @type = obj
       end
 

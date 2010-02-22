@@ -129,7 +129,7 @@ module Google
           when DataType::TIMEOFDAY
             return rb_to_js_timeofday(obj)
           else
-            raise(TypeError, 'invalid type')
+            raise(TypeError, "wrong argument type #{type}, should be DataType")
           end
         end
 
@@ -149,7 +149,7 @@ module Google
           elsif obj.respond_to?(:to_i)
             obj.to_i.to_s
           else
-            raise(TypeError, "can't convert")
+            raise(TypeError, "can't convert #{obj.class} into JavaScript number")
           end
         end
 
@@ -168,7 +168,7 @@ module Google
             #Shift the month by 1 to match the JavaScript date format
             "new Date(#{obj.year},#{obj.month-1},#{obj.day})"
           else
-            raise(TypeError, "can't convert")
+            raise(TypeError, "can't convert #{obj.class} into JavaScript date")
           end
         end
 
@@ -180,7 +180,7 @@ module Google
             #Shift the month by 1 to match the JavaScript date format
             "new Date(#{obj.year},#{obj.month-1},#{obj.day},#{obj.hour},#{obj.min},#{obj.sec})"
           else
-            raise(TypeError, "can't convert")
+            raise(TypeError, "can't convert #{obj.class} into JavaScript datetime")
           end
         end
 
@@ -191,7 +191,7 @@ module Google
           if obj.instance_of?(Time) or obj.instance_of?(DateTime)
             "[#{obj.hour},#{obj.min},#{obj.sec}]"
           else
-            raise(TypeError, "can't convert")
+            raise(TypeError, "can't convert #{obj.class} into JavaScript timeofday")
           end
         end
       end

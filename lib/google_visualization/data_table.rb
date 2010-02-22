@@ -75,7 +75,7 @@ module Google
       #
       def add_row(obj)
         obj = DataRow.new(obj) unless obj.is_a?(DataRow)
-        raise(StandardError, "invalid size") if obj.cells_count != columns_count
+        raise(StandardError, "wrong row size #{obj.cells_count}, should be #{columns_count})") if obj.cells_count != columns_count
         obj.close
         @rows << obj
         self
@@ -85,7 +85,7 @@ module Google
       # Adds a single column to the end of the table and returns self.
       #
       def add_column(obj)
-        raise(StandardError, "can't modify") if rows_count > 0
+        raise(StandardError, "can't add columns after adding rows") if rows_count > 0
         obj = DataColumn.new(obj) unless obj.is_a?(DataColumn)
         obj.close
         @columns << obj

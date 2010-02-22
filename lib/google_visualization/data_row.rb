@@ -45,7 +45,7 @@ module Google
       # Adds a single object to the end of the row and returns self.
       #
       def add_cell(obj)
-        raise(StandardError, "can't modify") if @closed
+        raise(StandardError, "can't modify closed row") if @closed
         obj = DataCell.new(obj) unless obj.is_a?(DataCell)
         @cells << obj
         self
