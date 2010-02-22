@@ -26,7 +26,7 @@ module Google
   # The Google::Visualization module contains classes and modules to interact with the {Google Visualization API}[http://code.google.com/apis/visualization/interactive_charts.html].
   #
   module Visualization
-    VERSION = "0.1.3"
+    VERSION = "0.5.0"
   end
 
 end
