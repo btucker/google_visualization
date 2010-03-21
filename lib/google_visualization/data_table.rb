@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'ruby-debug'
+
 module Google
   module Visualization
 
@@ -109,12 +112,17 @@ module Google
       end
 
       ##
-      # Sorts the table rows according to the specified column and order.
+      # Sorts the table rows according to the specified order and columns.
       #
-      def sort_rows!(column_index, order=:ascending)
+      def sort_rows!(order, *columns)
         correlation = (order == :ascending ? 1 : -1)
         @rows.sort! { |a,b|
-          (a.cell(column_index).value <=> b.cell(column_index).value) * correlation
+          pivot = 0
+          columns.each { |column|
+            pivot = column
+            break if a.cell(column).value != b.cell(column).value
+          }
+          (a.cell(pivot).value <=> b.cell(pivot).value) * correlation          
         }
       end
       

@@ -74,26 +74,46 @@ class TC_DataTable < Test::Unit::TestCase
     assert_nothing_raised { table.add_row(['value', 2]) }
   end
   
-  def test_sort_rows_ascending
+  def test_sort_rows_single_column_ascending
     columns = [DataType::STRING, DataColumn.new(DataType::NUMBER)]
     rows = [['value', 2], ['value', 0], DataRow.new(['value', 1])]
     table = DataTable.new(columns, rows)
-    table.sort_rows!(1, :ascending)
+    table.sort_rows!(:ascending, 1)
     assert_equal(table.cell(0,1).value, 0)
     assert_equal(table.cell(1,1).value, 1)
     assert_equal(table.cell(2,1).value, 2)
   end
   
-  def test_sort_rows_descending
+  def test_sort_rows_single_column_descending
     columns = [DataType::STRING, DataColumn.new(DataType::NUMBER)]
     rows = [['value', 2], ['value', 0], DataRow.new(['value', 1])]
     table = DataTable.new(columns, rows)
-    table.sort_rows!(1, :descending)
+    table.sort_rows!(:descending, 1)
     assert_equal(table.cell(0,1).value, 2)
     assert_equal(table.cell(1,1).value, 1)
     assert_equal(table.cell(2,1).value, 0)
   end
+ 
+  def test_sort_rows_multiple_columns_ascending
+    columns = [DataType::STRING, DataColumn.new(DataType::NUMBER)]
+    rows = [['b', 1], ['a', 1], DataRow.new(['c', 0])]
+    table = DataTable.new(columns, rows)
+    table.sort_rows!(:ascending, 1, 0)
+    assert_equal(table.cell(0,0).value, 'c')
+    assert_equal(table.cell(1,0).value, 'a')
+    assert_equal(table.cell(2,0).value, 'b')
+  end
   
+  def test_sort_rows_multiple_columns_descending
+    columns = [DataType::STRING, DataColumn.new(DataType::NUMBER)]
+    rows = [['b', 1], ['a', 1], DataRow.new(['c', 0])]
+    table = DataTable.new(columns, rows)
+    table.sort_rows!(:descending, 1, 0)
+    assert_equal(table.cell(0,0).value, 'b')
+    assert_equal(table.cell(1,0).value, 'a')
+    assert_equal(table.cell(2,0).value, 'c')
+  end
+
   def test_custom_properties
     table = DataTable.new
     assert_equal(table.is_a?(DataElement), true)
