@@ -1,6 +1,5 @@
 table = DataTable.new
 table.store_custom_property(:foo, 'hello')
-table.store_custom_property(:bar, 'world!')
 table.add_column DataColumn.new(DataType::STRING, 'A-label', 'A')
 table.add_column DataColumn.new(DataType::NUMBER, 'B-label', 'B')
 table.add_column DataColumn.new(DataType::DATE, 'C-label', 'C')
