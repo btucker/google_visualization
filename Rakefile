@@ -1,6 +1,5 @@
 $LOAD_PATH.unshift "#{File.dirname(__FILE__)}/lib"
 
-require 'rubygems'
 require 'rake'
 require 'rake/clean'
 require 'rake/gempackagetask'

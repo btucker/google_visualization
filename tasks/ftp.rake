@@ -1,7 +1,6 @@
 require 'net/ftp'
 require 'pathname'
 require 'yaml'
-require 'rubygems'
 require 'rake'
 require 'rake/tasklib'
 
