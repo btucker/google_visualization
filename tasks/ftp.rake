@@ -175,7 +175,9 @@ module Rake
 
 end
 
-Rake::FTPTask.new("config/ftp.yml") do |ftp|
-  ftp.upload_files = FileList["doc/**/*"].to_a
-  ftp.verbose = true
+if File.exists?("config/ftp.yml")
+  Rake::FTPTask.new("config/ftp.yml") do |ftp|
+    ftp.upload_files = FileList["doc/**/*"].to_a
+    ftp.verbose = true
+  end
 end
