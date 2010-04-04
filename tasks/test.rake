@@ -1,3 +1,5 @@
+require 'rake/testtask'
+
 namespace(:test) do
 
   # For a list of all attributes refer to http://rake.rubyforge.org/classes/Rake/TestTask.html

@@ -1,14 +1,23 @@
-$LOAD_PATH.unshift "#{File.dirname(__FILE__)}/lib"
-
 require 'rake'
 require 'rake/clean'
-require 'rake/gempackagetask'
-require 'rake/rdoctask'
-require 'rake/testtask'
-require 'google_visualization'
 
-# Load all rakefile extensions
+require File.dirname(__FILE__) + "/lib/google_visualization.rb"
+
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |gem|
+    gem.name = "google_visualization"
+    gem.version = Google::Visualization::VERSION
+    gem.summary = "A Ruby interface to manipulate and populate data for Google Interactive Charts"
+    gem.email = "fmmfonseca@gmail.com"
+    gem.homepage = "http://github.com/fmmfonseca/google_visualization"
+    gem.authors = ["Miguel Fonseca"]
+  end
+  CLEAN.include("pkg")
+rescue LoadError
+  puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
+end
+
 Dir["tasks/*.rake"].each { |ext| load ext }
 
-# Set default task
-task :default => ["test:unit"]
+task :default => 'test:unit'

@@ -1,3 +1,5 @@
+require 'rake/rdoctask'
+
 CLEAN.include("doc")
 
 # For a list of all attributes refer to http://rake.rubyforge.org/classes/Rake/RDocTask.html
