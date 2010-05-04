@@ -41,7 +41,7 @@ module Google
         def self.render_column(column)
           result = {}
           %w(id label type pattern).each do |field|
-            result[field] = column.send(field).to_s if column.send(field)
+            result[field] = column.send(field).to_s unless column.send(field).blank?
           end
          # if column.custom_properties_count > 0
          #   result["p"] = render_custom_properties(column)
