@@ -12,6 +12,7 @@ begin
     gem.email = "fmmfonseca@gmail.com"
     gem.homepage = "http://github.com/fmmfonseca/google_visualization"
     gem.authors = ["Miguel Fonseca"]
+    gem.add_dependency 'json'
   end
   CLEAN.include("pkg")
 rescue LoadError
