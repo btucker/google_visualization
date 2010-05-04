@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{google_visualization}
-  s.version = "0.5.2"
+  s.version = "0.5.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Miguel Fonseca"]
-  s.date = %q{2010-04-04}
+  s.date = %q{2010-05-04}
   s.email = %q{fmmfonseca@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
      "LICENSE",
      "README.rdoc",
      "Rakefile",
+     "google_visualization.gemspec",
      "lib/google_visualization.rb",
      "lib/google_visualization/data_cell.rb",
      "lib/google_visualization/data_column.rb",
@@ -46,8 +47,7 @@ Gem::Specification.new do |s|
      "test/tc_data_element.rb",
      "test/tc_data_row.rb",
      "test/tc_data_table.rb",
-     "test/tc_data_type.rb",
-     "test/tc_json.rb"
+     "test/tc_data_type.rb"
   ]
   s.homepage = %q{http://github.com/fmmfonseca/google_visualization}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -55,17 +55,16 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.6}
   s.summary = %q{A Ruby interface to manipulate and populate data for Google Interactive Charts}
   s.test_files = [
-    "test/tc_data_row.rb",
-     "test/tc_json.rb",
+    "test/data/table1.rb",
+     "test/data/table2.rb",
+     "test/data/table3.rb",
+     "test/data/table4.rb",
+     "test/helper.rb",
+     "test/tc_data_cell.rb",
      "test/tc_data_column.rb",
      "test/tc_data_element.rb",
-     "test/tc_data_cell.rb",
+     "test/tc_data_row.rb",
      "test/tc_data_table.rb",
-     "test/helper.rb",
-     "test/data/table4.rb",
-     "test/data/table3.rb",
-     "test/data/table2.rb",
-     "test/data/table1.rb",
      "test/tc_data_type.rb"
   ]
 
@@ -74,9 +73,12 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<json>, [">= 0"])
     else
+      s.add_dependency(%q<json>, [">= 0"])
     end
   else
+    s.add_dependency(%q<json>, [">= 0"])
   end
 end
 
