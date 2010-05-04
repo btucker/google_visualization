@@ -72,6 +72,7 @@ module Google
           result = {'v' => cell.value} 
           result['f'] = cell.formatted_value if cell.formatted_value
           # result['p'] = render_custom_properties(row) if row.custom_properties_count > 0
+          result
         end
 
         ##
