@@ -8,6 +8,7 @@ require 'google_visualization/data_row'
 require 'google_visualization/data_column'
 require 'google_visualization/data_table'
 require 'google_visualization/formatter/json'
+require 'google_visualization/formatter/csv'
 
 ##
 # = Google
