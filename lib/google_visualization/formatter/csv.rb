@@ -1,4 +1,5 @@
 require 'csv'
+require 'csv/writer'
 
 module Google
   module Visualization
