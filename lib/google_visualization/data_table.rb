@@ -130,6 +130,12 @@ module Google
         Formatter::JSON.render(self)
       end
 
+      ##
+      # Returns a CSV representation of the table, according to the Google Visualization API.
+      #
+      def to_csv
+        Formatter::CSV.render(self)
+      end
     end
 
   end
