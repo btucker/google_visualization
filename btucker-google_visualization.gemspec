@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
      "LICENSE",
      "README.rdoc",
      "Rakefile",
-     "google_visualization.gemspec",
+     "btucker-google_visualization.gemspec",
      "lib/google_visualization.rb",
      "lib/google_visualization/data_cell.rb",
      "lib/google_visualization/data_column.rb",
