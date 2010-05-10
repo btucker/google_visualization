@@ -6,12 +6,12 @@ require File.dirname(__FILE__) + "/lib/google_visualization.rb"
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "google_visualization"
+    gem.name = "btucker-google_visualization"
     gem.version = Google::Visualization::VERSION
-    gem.summary = "A Ruby interface to manipulate and populate data for Google Interactive Charts"
-    gem.email = "fmmfonseca@gmail.com"
-    gem.homepage = "http://github.com/fmmfonseca/google_visualization"
-    gem.authors = ["Miguel Fonseca"]
+    gem.summary = "A Ruby interface to manipulate and populate data for Google Interactive Charts.  Differ's from original in that it uses the JSON gem to provide valid JSON."
+    gem.email = "ben@btucker.net"
+    gem.homepage = "http://github.com/btucker/google_visualization"
+    gem.authors = ["Ben Tucker", "Miguel Fonseca"]
     gem.add_dependency 'json'
   end
   CLEAN.include("pkg")

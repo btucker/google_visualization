@@ -4,13 +4,13 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{google_visualization}
+  s.name = %q{btucker-google_visualization}
   s.version = "0.5.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Miguel Fonseca"]
-  s.date = %q{2010-05-04}
-  s.email = %q{fmmfonseca@gmail.com}
+  s.authors = ["Ben Tucker", "Miguel Fonseca"]
+  s.date = %q{2010-05-10}
+  s.email = %q{ben@btucker.net}
   s.extra_rdoc_files = [
     "LICENSE",
      "README.rdoc"
@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
      "lib/google_visualization/data_table.rb",
      "lib/google_visualization/data_type.rb",
      "lib/google_visualization/formatter.rb",
+     "lib/google_visualization/formatter/csv.rb",
      "lib/google_visualization/formatter/json.rb",
      "tasks/ftp.rake",
      "tasks/rdoc.rake",
@@ -49,11 +50,11 @@ Gem::Specification.new do |s|
      "test/tc_data_table.rb",
      "test/tc_data_type.rb"
   ]
-  s.homepage = %q{http://github.com/fmmfonseca/google_visualization}
+  s.homepage = %q{http://github.com/btucker/google_visualization}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
-  s.summary = %q{A Ruby interface to manipulate and populate data for Google Interactive Charts}
+  s.summary = %q{A Ruby interface to manipulate and populate data for Google Interactive Charts.  Differ's from original in that it uses the JSON gem to provide valid JSON.}
   s.test_files = [
     "test/data/table1.rb",
      "test/data/table2.rb",
