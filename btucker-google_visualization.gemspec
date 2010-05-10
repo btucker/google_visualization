@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ben Tucker", "Miguel Fonseca"]
   s.date = %q{2010-05-10}
+  s.description = %q{Differs from original in that it uses the JSON gem to provide valid JSON.}
   s.email = %q{ben@btucker.net}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -54,7 +55,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
-  s.summary = %q{A Ruby interface to manipulate and populate data for Google Interactive Charts.  Differ's from original in that it uses the JSON gem to provide valid JSON.}
+  s.summary = %q{A Ruby interface to manipulate and populate data for Google Interactive Charts.}
   s.test_files = [
     "test/data/table1.rb",
      "test/data/table2.rb",

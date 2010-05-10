@@ -8,7 +8,8 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "btucker-google_visualization"
     gem.version = Google::Visualization::VERSION
-    gem.summary = "A Ruby interface to manipulate and populate data for Google Interactive Charts.  Differ's from original in that it uses the JSON gem to provide valid JSON."
+    gem.summary = "A Ruby interface to manipulate and populate data for Google Interactive Charts."
+    gem.description = "Differs from original in that it uses the JSON gem to provide valid JSON."
     gem.email = "ben@btucker.net"
     gem.homepage = "http://github.com/btucker/google_visualization"
     gem.authors = ["Ben Tucker", "Miguel Fonseca"]
