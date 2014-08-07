@@ -121,4 +121,17 @@ class TC_DataTable < Test::Unit::TestCase
     assert_equal(table.is_a?(DataElement), true)
   end
 
+  def test_date_formatting
+    columns = [DataType::DATE, DataType::STRING, DataType::DATETIME]
+    date = Date.new(2014,8,7)
+    dateTime = DateTime.new(2014,8,7,5,5,5)
+    rows = [[date, "string", dateTime], [date, "string", dateTime], [date, "string", dateTime], [date, "string", dateTime]]
+    table = DataTable.new(columns, rows)
+
+    should_be = '{"cols"=>[{"type"=>"date", "pattern"=>""}, {"type"=>"string", "pattern"=>""}, {"type"=>"datetime", "pattern"=>""}], "rows"=>[{"c"=>["{v: new Date(2014, 8, 7)}", {"v"=>"string"}, "{v: new Date(2014, 8, 7, 5, 5, 5)}"]}, {"c"=>["{v: new Date(2014, 8, 7)}", {"v"=>"string"}, "{v: new Date(2014, 8, 7, 5, 5, 5)}"]}, {"c"=>["{v: new Date(2014, 8, 7)}", {"v"=>"string"}, "{v: new Date(2014, 8, 7, 5, 5, 5)}"]}, {"c"=>["{v: new Date(2014, 8, 7)}", {"v"=>"string"}, "{v: new Date(2014, 8, 7, 5, 5, 5)}"]}]}'
+    assert_equal(JSON.parse(table.to_json).to_s, should_be)
+
+    #puts JSON.parse(table.to_json).to_s
+  end
+
 end

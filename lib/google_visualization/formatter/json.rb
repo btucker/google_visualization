@@ -3,7 +3,7 @@ require 'json'
 module Google
   module Visualization
     module Formatter
-      
+
       ##
       # = JSON Formatter
       #
@@ -12,17 +12,17 @@ module Google
       # Serializes a DataTable to the JavaScript Object Notation (JSON).
       #
       class JSON
-        
+
         private_class_method :new
-        
+
         ##
         # Generates a JSON string representation of a data table.
         #
         def self.render(data_table)
           {
-            'cols' => render_columns(data_table),
-            'rows' => render_rows(data_table) #,
-#            'p' => render_custom_properties(data_table)
+              'cols' => render_columns(data_table),
+              'rows' => render_rows(data_table) #,
+              #            'p' => render_custom_properties(data_table)
           }.to_json
         end
 
@@ -43,9 +43,9 @@ module Google
           %w(id label type pattern).each do |field|
             result[field] = column.send(field).to_s if column.send(field)
           end
-         # if column.custom_properties_count > 0
-         #   result["p"] = render_custom_properties(column)
-         # end
+          # if column.custom_properties_count > 0
+          #   result["p"] = render_custom_properties(column)
+          # end
           result
         end
 
@@ -61,17 +61,34 @@ module Google
         #
         def self.render_row(row, data_table)
           result = {'c' => []}
-          result = {'c' => row.cells.map {|c| render_cell(c)}}
+          i = 0
+          result = {'c' => row.cells.map { |c|
+            c = render_cell(c, data_table.column(i).type)
+            i+=1
+            c
+          }
+          }
+
           result
         end
-
         ##
         # Generates a JSON string representation of a cell.
         #
-        def self.render_cell(cell)
-          result = {'v' => cell.value} 
-          result['f'] = cell.formatted_value if cell.formatted_value
-          # result['p'] = render_custom_properties(row) if row.custom_properties_count > 0
+        def self.render_cell(cell, type=nil)
+
+          if (type == DataType::DATETIME || type == DataType::DATE)
+            d = cell.value
+            if d.instance_of?(Date)
+              result = { 'v'  => "Date(#{d.year}, #{d.month}, #{d.day})"}
+            elsif d.instance_of?(DateTime)
+              result = { 'v'  => "Date(#{d.year}, #{d.month}, #{d.day}, #{d.hour}, #{d.minute}, #{d.second})"}
+            end
+          else
+            result = {'v' => cell.value}
+            result['f'] = cell.formatted_value if cell.formatted_value
+            # result['p'] = render_custom_properties(row) if row.custom_properties_count > 0
+          end
+
           result
         end
 
