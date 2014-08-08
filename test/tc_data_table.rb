@@ -128,7 +128,7 @@ class TC_DataTable < Test::Unit::TestCase
     rows = [[date, "string", dateTime], [date, "string", dateTime], [date, "string", dateTime], [date, "string", dateTime]]
     table = DataTable.new(columns, rows)
 
-    should_be = '{"cols"=>[{"type"=>"date", "pattern"=>""}, {"type"=>"string", "pattern"=>""}, {"type"=>"datetime", "pattern"=>""}], "rows"=>[{"c"=>["{v: new Date(2014, 8, 7)}", {"v"=>"string"}, "{v: new Date(2014, 8, 7, 5, 5, 5)}"]}, {"c"=>["{v: new Date(2014, 8, 7)}", {"v"=>"string"}, "{v: new Date(2014, 8, 7, 5, 5, 5)}"]}, {"c"=>["{v: new Date(2014, 8, 7)}", {"v"=>"string"}, "{v: new Date(2014, 8, 7, 5, 5, 5)}"]}, {"c"=>["{v: new Date(2014, 8, 7)}", {"v"=>"string"}, "{v: new Date(2014, 8, 7, 5, 5, 5)}"]}]}'
+    should_be = '{"cols"=>[{"type"=>"date", "pattern"=>""}, {"type"=>"string", "pattern"=>""}, {"type"=>"datetime", "pattern"=>""}], "rows"=>[{"c"=>[{"v"=>"Date(2014, 8, 7)"}, {"v"=>"string"}, {"v"=>"Date(2014, 8, 7, 5, 5, 5)"}]}, {"c"=>[{"v"=>"Date(2014, 8, 7)"}, {"v"=>"string"}, {"v"=>"Date(2014, 8, 7, 5, 5, 5)"}]}, {"c"=>[{"v"=>"Date(2014, 8, 7)"}, {"v"=>"string"}, {"v"=>"Date(2014, 8, 7, 5, 5, 5)"}]}, {"c"=>[{"v"=>"Date(2014, 8, 7)"}, {"v"=>"string"}, {"v"=>"Date(2014, 8, 7, 5, 5, 5)"}]}]}'
     assert_equal(JSON.parse(table.to_json).to_s, should_be)
 
     #puts JSON.parse(table.to_json).to_s
