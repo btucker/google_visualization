@@ -79,9 +79,9 @@ module Google
           if (type == DataType::DATETIME || type == DataType::DATE)
             d = cell.value
             if d.instance_of?(Date)
-              result = { 'v'  => "Date(#{d.year}, #{d.month}, #{d.day})"}
+              result = { 'v'  => "Date(#{d.year}, #{d.month-1}, #{d.day})"}
             elsif d.instance_of?(DateTime)
-              result = { 'v'  => "Date(#{d.year}, #{d.month}, #{d.day}, #{d.hour}, #{d.minute}, #{d.second})"}
+              result = { 'v'  => "Date(#{d.year}, #{d.month-1}, #{d.day}, #{d.hour}, #{d.minute}, #{d.second})"}
             end
           else
             result = {'v' => cell.value}
