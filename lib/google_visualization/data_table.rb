@@ -126,14 +126,14 @@ module Google
       ##
       # Returns a JSON representation of the table, according to the Google Visualization API.
       #
-      def to_json
+      def to_json(options = nil)
         Formatter::JSON.render(self)
       end
 
       ##
       # Returns a CSV representation of the table, according to the Google Visualization API.
       #
-      def to_csv
+      def to_csv(options = nil)
         Formatter::CSV.render(self)
       end
     end
